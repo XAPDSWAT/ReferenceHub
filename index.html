@@ -15,7 +15,7 @@
         input {
             padding: 10px;
             font-size: 16px;
-            width: 200px;
+            width: 220px;
             border-radius: 8px;
             border: none;
             margin-right: 10px;
@@ -34,9 +34,19 @@
         #output {
             margin-top: 30px;
             font-size: 18px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -44,33 +54,63 @@
 
     <h1>Enter Reference Code</h1>
 
-    <input type="text" id="codeInput" placeholder="Enter code...">
+    <input type="text" id="codeInput" placeholder="Enter code..." onkeypress="handleKey(event)">
     <button onclick="checkCode()">Submit</button>
 
     <div id="output"></div>
 
     <script>
-        //  ALL YOUR CODES LIVE HERE (easy to add more)
+        //  ALL REFERENCE CODES (easy to expand)
         const codes = {
+
             "USH": {
                 type: "redirect",
                 value: "https://xapdswat.github.io/randomiser/"
             },
+
             "XOG": {
                 type: "text",
                 value: "Xandopsy Games is the perfect gaming company for you. With two games in late phases on Roblox, we are also in the early stages of developing a .exe game."
             },
+
             "CIO": {
                 type: "text",
                 value: "Mobile number: +447344141887<br>Email: xandercorporation@outlook.com"
             },
+
             "QT-19": {
                 type: "text",
-                value: "You owe Xander Corporation or one of it's child companies money. Please use reference code CIO for our contact info so you can coordinate with us."
+                value: "You owe Xander Corporation or one of its child companies' money. Please use reference code CIO for our contact info so you can coordinate with us."
             },
+
             "QT-20": {
                 type: "text",
-                value: "You are owed money by Xander Corporation or one of it's child companies. Please use reference code CIO for our contact info so you can coordinate with us."
+                value: "You are owed money by Xander Corporation or one of its child companies'. Please use reference code CIO for our contact info so you can coordinate with us."
+            },
+
+            "YT": {
+                type: "redirect",
+                value: "https://youtube.com/DasTheGamerYT"
+            },
+
+            "WBS": {
+                type: "text",
+                value: `
+                    <a href="https://xapdswat.github.io/randomiser/" target="_blank">Randomiser</a><br>
+                    <a href="https://xapdswat.github.io/XAPDSWAT/" target="_blank">XAPDSWAT</a><br>
+                    <a href="https://xapdswat.github.io/EPICWEBSITE/" target="_blank">EPICWEBSITE</a><br>
+                    <a href="https://xapdswat.github.io/creatorvault/" target="_blank">Creator Vault</a>
+                `
+            },
+
+            "VT": {
+                type: "redirect",
+                value: "https://www.virustotal.com/"
+            },
+
+            "RL-10": {
+                type: "text",
+                value: "Congratulations for being relative of A. H. G.!"
             }
         };
 
@@ -86,6 +126,12 @@
                 }
             } else {
                 output.innerHTML = "Invalid reference code.";
+            }
+        }
+
+        function handleKey(event) {
+            if (event.key === "Enter") {
+                checkCode();
             }
         }
     </script>
