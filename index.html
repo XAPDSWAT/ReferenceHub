@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reference Code Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background-color: #0f172a;
+            color: white;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            border-radius: 8px;
+            border: none;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #22c55e;
+            color: white;
+        }
+
+        #output {
+            margin-top: 30px;
+            font-size: 18px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Reference Code</h1>
+
+    <input type="text" id="codeInput" placeholder="Enter code...">
+    <button onclick="checkCode()">Submit</button>
+
+    <div id="output"></div>
+
+    <script>
+        // 🔥 ALL YOUR CODES LIVE HERE (easy to add more)
+        const codes = {
+            "USH": {
+                type: "redirect",
+                value: "https://xapdswat.github.io/randomiser/"
+            },
+            "XOG": {
+                type: "text",
+                value: "Xandopsy Games is the perfect gaming company for you. With two games in late phases on Roblox, we are also in the early stages of developing a .exe game."
+            },
+            "CIO": {
+                type: "text",
+                value: "Mobile number: +447344141887<br>Email: xandercorporation@outlook.com"
+            },
+            "QT-19": {
+                type: "text",
+                value: "You owe Xander Corporation or one of it's child companies money. Please use reference code CIO for our contact info so you can coordinate with us."
+            },
+            "QT-20": {
+                type: "text",
+                value: "You are owed money by Xander Corporation or one of it's child companies. Please use reference code CIO for our contact info so you can coordinate with us."
+            }
+        };
+
+        function checkCode() {
+            const input = document.getElementById("codeInput").value.trim().toUpperCase();
+            const output = document.getElementById("output");
+
+            if (codes[input]) {
+                if (codes[input].type === "redirect") {
+                    window.location.href = codes[input].value;
+                } else {
+                    output.innerHTML = codes[input].value;
+                }
+            } else {
+                output.innerHTML = "Invalid reference code.";
+            }
+        }
+    </script>
+
+</body>
+</html>
