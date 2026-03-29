@@ -34,19 +34,30 @@
         #output {
             margin-top: 30px;
             font-size: 18px;
-            max-width: 700px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
         }
 
-        a {
-            color: #38bdf8;
-            text-decoration: none;
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            width: 100%;
+            background-color: #1e293b;
         }
 
-        a:hover {
-            text-decoration: underline;
+        th, td {
+            border: 1px solid #334155;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #334155;
+        }
+
+        a {
+            color: #38bdf8;
         }
     </style>
 </head>
@@ -60,7 +71,6 @@
     <div id="output"></div>
 
     <script>
-        //  ALL REFERENCE CODES (easy to expand)
         const codes = {
 
             "USH": {
@@ -90,16 +100,16 @@
 
             "YT": {
                 type: "redirect",
-                value: "https://youtube.com/@DasTheGamerYT"
+                value: "https://youtube.com/DasTheGamerYT"
             },
 
             "WBS": {
                 type: "text",
                 value: `
-                    <a href="https://xapdswat.github.io/randomiser/" target="_blank">Randomiser</a><br>
-                    <a href="https://xapdswat.github.io/XAPDSWAT/" target="_blank">XAPDSWAT</a><br>
-                    <a href="https://xapdswat.github.io/EPICWEBSITE/" target="_blank">EPICWEBSITE</a><br>
-                    <a href="https://xapdswat.github.io/creatorvault/" target="_blank">Creator Vault</a>
+                    Randomiser: https://xapdswat.github.io/randomiser/<br>
+                    XAPDSWAT: https://xapdswat.github.io/XAPDSWAT/<br>
+                    EPICWEBSITE: https://xapdswat.github.io/EPICWEBSITE/<br>
+                    Creator Vault: https://xapdswat.github.io/creatorvault/
                 `
             },
 
@@ -111,7 +121,31 @@
             "RL-10": {
                 type: "text",
                 value: "Congratulations for being relative of A. H. G.!"
+            },
+
+            "XGH": {
+                type: "redirect",
+                value: "https://github.com/XAPDSWAT/"
+            },
+
+            "CODES": {
+                type: "text",
+                value: `
+                <table>
+                    <tr><th>Code</th><th>Type</th><th>Action</th></tr>
+                    <tr><td>USH</td><td>Redirect</td><td>https://xapdswat.github.io/randomiser/</td></tr>
+                    <tr><td>XOG</td><td>Text</td><td>Xandopsy Games is the perfect gaming company for you...</td></tr>
+                    <tr><td>CIO</td><td>Text</td><td>Mobile number: +447344141887 | Email: xandercorporation@outlook.com</td></tr>
+                    <tr><td>QT-19</td><td>Text</td><td>You owe Xander Corporation...</td></tr>
+                    <tr><td>QT-20</td><td>Text</td><td>You are owed money by Xander Corporation...</td></tr>
+                    <tr><td>YT</td><td>Redirect</td><td>https://youtube.com/DasTheGamerYT</td></tr>
+                    <tr><td>WBS</td><td>Text</td><td>Multiple website links</td></tr>
+                    <tr><td>VT</td><td>Redirect</td><td>https://www.virustotal.com/</td></tr>
+                    <tr><td>RL-10</td><td>Text</td><td>Congratulations for being relative of A. H. G.!</td></tr>
+                </table>
+                `
             }
+
         };
 
         function checkCode() {
@@ -120,12 +154,12 @@
 
             if (codes[input]) {
                 if (codes[input].type === "redirect") {
-                    window.location.href = codes[input].value;
+                    window.open(codes[input].value, "_blank"); // opens in new tab
                 } else {
                     output.innerHTML = codes[input].value;
                 }
             } else {
-                output.innerHTML = "Invalid reference code. If the code you was given was correct, please use code CIO.";
+                output.innerHTML = "Invalid reference code.";
             }
         }
 
